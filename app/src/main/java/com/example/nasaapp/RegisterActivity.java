@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Jawne przekazanie intentu - czyli co chcemy zrobic i jak chcemy zrobic
-                Intent intent = new Intent(RegisterActivity.this, TestActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                 startActivity(intent);
 
             }
