@@ -2,7 +2,6 @@ package com.example.nasaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,16 +12,12 @@ public class SecondActivity extends AppCompatActivity {
 
     private Button changeToFirstActivityBtn;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.asd);
 
         changeToFirstActivityBtn = (Button) findViewById(R.id.button);
-
-
-        // Przez metodę zagniezdzona
         changeToFirstActivityBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override

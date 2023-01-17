@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".TestActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zalogowany"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="296dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
