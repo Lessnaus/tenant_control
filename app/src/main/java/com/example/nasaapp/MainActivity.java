@@ -1,6 +1,7 @@
 package com.example.nasaapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView  logoImage;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         changeTextBtn2 = (Button) findViewById(R.id.button2);
         changeTextBtn2.setOnClickListener(this);
 
+        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+        String checkbox = preferences.getString("remember","");
 
+        if (checkbox.equals("true")){
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            startActivity(intent);
+        } else if (checkbox.equals("false")){
+            Toast.makeText(MainActivity.this, "Please Sign In", Toast.LENGTH_SHORT).show();
+        };
 
     }
 

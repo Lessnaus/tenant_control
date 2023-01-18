@@ -16,7 +16,8 @@
     <string name="toast_1_show_text">Odszukałem kosmitów - pracują na WSB!</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_manual_fragment">Czesc - poszukamy gwiazd ?</string>
+
+    <string name="hello_manual_fragment">Welcome in Tenant Control App</string>
     <string name="hello_manual_fragment2">Odszukane gwiazdy !</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_login2">LoginActivity2</string>

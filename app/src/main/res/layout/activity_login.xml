@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,22 +12,68 @@
         android:id="@+id/username1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="User Name"
-        android:layout_marginTop="50dp"/>
+        android:layout_below="@+id/textLogin"
+        android:layout_marginTop="50dp"
+        android:hint="User Name" />
 
-    <EditText
-        android:id="@+id/password1"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:layout_below="@+id/username1"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/username1"/>
+        app:passwordToggleEnabled="true"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username1"
+
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnsignin1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign in"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignStart="@+id/checkBox"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/password1"/>
+        android:text="Sign in" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPasswordLayout"
+        android:layout_alignStart="@+id/etPasswordLayout"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Remember me " />
+
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Login"
+        android:gravity="center"
+        android:textSize="150px"
+        android:textColor="@color/aqua"/>
+    <TextView
+        android:id="@+id/textAlertLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnsignin1"
+        android:layout_marginTop="31dp"
+        android:text="User already exists!"
+        android:textColor="@color/red"
+        android:visibility="gone" />
 </RelativeLayout>

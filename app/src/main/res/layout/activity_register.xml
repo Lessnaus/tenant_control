@@ -7,28 +7,61 @@
     android:padding="10dp"
     tools:context=".RegisterActivity">
 
+    <TextView
+        android:id="@+id/textRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Register"
+        android:gravity="center"
+        android:textSize="150px"
+        android:textColor="@color/aqua"/>
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textRegister"
         android:hint="User Name"
         android:layout_marginTop="50dp"/>
 
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:layout_below="@+id/username"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/username"/>
+        app:passwordToggleEnabled="true"
+        >
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username1"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etRePasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPasswordLayout"
+        android:layout_marginTop="50dp"
+        app:passwordToggleEnabled="true"
+        >
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/repassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Retype Password"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/password"/>
+        android:inputType="textPassword"
+        android:layout_below="@+id/etPasswordLayout"
+        android:background="@color/white"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnsignup"
@@ -36,14 +69,16 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/repassword"/>
+        android:layout_below="@+id/etRePasswordLayout"/>
 
-    <Button
-        android:id="@+id/btnsignin"
+    <TextView
+        android:id="@+id/textAlert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Existing user! Go to Sign in page"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/btnsignup"/>
+        android:layout_below="@+id/btnsignup"
+        android:layout_marginTop="31dp"
+        android:text="User already exists!"
+        android:textColor="@color/red"
+        android:visibility="gone" />
 
 </RelativeLayout>

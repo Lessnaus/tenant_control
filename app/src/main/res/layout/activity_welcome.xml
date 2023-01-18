@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".WelcomeActivity">
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textWelcome"
+        android:layout_alignStart="@+id/textWelcome"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStart"
+        android:layout_alignStart="@+id/btnStart"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Log out" />
+
+
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Welcome"
+        android:gravity="center"
+        android:textSize="150px"
+        android:textColor="@color/aqua"/>
+
+</RelativeLayout>

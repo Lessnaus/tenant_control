@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnCalendar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Button1"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintStart_toStartOf="@+id/button8" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Button2"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintStart_toStartOf="@+id/button9" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Button3"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintStart_toStartOf="@+id/button10" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginBottom="224dp"
-        android:text="Button4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below="@+id/textWelcome"
+        android:layout_alignStart="@+id/textWelcome"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Calendar"
         tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnDuties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCalendar"
+        android:layout_alignStart="@+id/btnCalendar"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Duties"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDuties"
+        android:layout_alignStart="@+id/btnDuties"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Budget"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBudget"
+        android:layout_alignStart="@+id/btnBudget"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Comments"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnLogOut2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnComments"
+        android:layout_alignStart="@+id/btnComments"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:text="Log out" />
+
+
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="Home"
+        android:gravity="center"
+        android:textSize="150px"
+        android:textColor="@color/aqua"/>
+</RelativeLayout>
