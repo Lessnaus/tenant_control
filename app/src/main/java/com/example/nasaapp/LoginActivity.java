@@ -51,6 +51,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         remember = (CheckBox) findViewById(R.id.checkBox);
+        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+        String checkbox = preferences.getString("remember","");
+
+        if (checkbox.equals("true")){
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            startActivity(intent);
+        } else if (checkbox.equals("false")){
+            Toast.makeText(LoginActivity.this, "Please Sign In", Toast.LENGTH_SHORT).show();
+        };
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (checkbox.equals("true")){
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
-        } else if (checkbox.equals("false")){
-            Toast.makeText(MainActivity.this, "Please Sign In", Toast.LENGTH_SHORT).show();
         };
 
     }

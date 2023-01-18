@@ -64,11 +64,13 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getSharedPreferences("chechbox",MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("remember","false");
                 editor.apply();
+
                 finish();
+
 
             }
         });
