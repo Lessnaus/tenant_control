@@ -5,13 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
 
-public class DBLogin extends SQLiteOpenHelper {
-
+public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "Login.db";
-    public DBLogin(Context context) {
+    public DBHelper(Context context) {
         super(context, "Login.db", null, 1);
     }
 

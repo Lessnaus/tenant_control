@@ -1,56 +1,44 @@
 package com.example.nasaapp;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
-
-    private Button changeToFirstActivityBtn;
-    private ImageButton backButton;
-    private EditText mailText;
-    private EditText passwordText;
-    private TextView text;
-
+    EditText username, password;
+    Button btnlogin;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        backButton = (ImageButton) findViewById(R.id.imageButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-
+        username = (EditText) findViewById(R.id.username1);
+        password = (EditText) findViewById(R.id.password1);
+        btnlogin = (Button) findViewById(R.id.btnsignin1);
+        DB = new DBHelper(this);
+        btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Jawne przekazanie intentu - czyli co chcemy zrobic i jak chcemy zrobic
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
 
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
+                if(user.equals("")||pass.equals(""))
+                    Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else{
+                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    if(checkuserpass==true){
+                        Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
-
-        text = (TextView) findViewById(R.id.textView2);
-        mailText = (EditText) findViewById(R.id.editTextTextPersonName);
-        passwordText = (EditText) findViewById(R.id.editTextTextPersonName2);
-
-
-        changeToFirstActivityBtn = (Button) findViewById(R.id.button3);
-        changeToFirstActivityBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Jawne przekazanie intentu - czyli co chcemy zrobic i jak chcemy zrobic
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 }

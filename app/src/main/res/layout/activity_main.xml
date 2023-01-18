@@ -60,7 +60,7 @@
         android:layout_width="420dp"
         android:layout_height="703dp"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/aqua_color"
+        android:background="@color/aqua"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:srcCompat="@drawable/tenant_control_logo"
         tools:ignore="MissingConstraints"

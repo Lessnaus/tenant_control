@@ -1,5 +1,6 @@
 package com.example.nasaapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,50 +8,63 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button changeToFirstActivityBtn;
-    private ImageButton backButton;
-    private EditText mailText;
-    private EditText passwordText;
-    private TextView text;
-
+    EditText username, password, repassword;
+    Button signup, signin;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        backButton = (ImageButton) findViewById(R.id.imageButton3);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        repassword = (EditText) findViewById(R.id.repassword);
+        signup = (Button) findViewById(R.id.btnsignup);
+        signin = (Button) findViewById(R.id.btnsignin);
+        DB = new DBHelper(this);
 
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Jawne przekazanie intentu - czyli co chcemy zrobic i jak chcemy zrobic
-                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+                String repass = repassword.getText().toString();
 
+                if(user.equals("")||pass.equals("")||repass.equals(""))
+                    Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else{
+                    if(pass.equals(repass)){
+                        Boolean checkuser = DB.checkusername(user);
+                        if(checkuser==false){
+                            Boolean insert = DB.insertData(user, pass);
+                            if(insert==true){
+                                Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(RegisterActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    }
+                } }
+        });
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
-
-        text = (TextView) findViewById(R.id.textView5);
-        mailText = (EditText) findViewById(R.id.editTextTextPersonName5);
-        passwordText = (EditText) findViewById(R.id.editTextTextPersonName6);
-
-
-        changeToFirstActivityBtn = (Button) findViewById(R.id.button7);
-        changeToFirstActivityBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Jawne przekazanie intentu - czyli co chcemy zrobic i jak chcemy zrobic
-                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
     }
 }
