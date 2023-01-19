@@ -28,8 +28,8 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Not created", Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(HomeActivity.this, CalendarActivity.class);
+                startActivity(intent);
             }
         });
         buttonDuties = (Button) findViewById(R.id.btnDuties);
