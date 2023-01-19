@@ -10,11 +10,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView welcomeText;
     private Button startBtn;
     private Button logOutBtn;
-
 
 
     @Override
@@ -31,7 +30,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         logOutBtn.setOnClickListener(this);
 
 
-
     }
 
     @Override
@@ -40,9 +38,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         } else if (v.getId() == logOutBtn.getId()) {
-            SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+            SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("remember","false");
+            editor.putString("remember", "false");
             editor.apply();
             finish();
 

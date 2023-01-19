@@ -1,6 +1,7 @@
 package com.example.nasaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,12 +12,14 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button btnlogin;
     DBHelper DB;
     CheckBox remember;
     TextView textLogin, alert;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,47 +37,47 @@ public class LoginActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
-                if(user.equals("")||pass.equals("")){
+                if (user.equals("") || pass.equals("")) {
                     alert.setText("Please enter all the fields!");
-                    alert.setVisibility (view.VISIBLE);}
-                else{
+                    alert.setVisibility(view.VISIBLE);
+                } else {
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
-                    if(checkuserpass==true){
+                    if (checkuserpass == true) {
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(intent);
-                    }else{
+                    } else {
                         alert.setText("Invalid Credentials!");
-                        alert.setVisibility (view.VISIBLE);
+                        alert.setVisibility(view.VISIBLE);
                     }
                 }
             }
         });
         remember = (CheckBox) findViewById(R.id.checkBox);
-        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-        String checkbox = preferences.getString("remember","");
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
 
-        if (checkbox.equals("true")){
+        if (checkbox.equals("true")) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
-        } else if (checkbox.equals("false")){
+        } else if (checkbox.equals("false")) {
             Toast.makeText(LoginActivity.this, "Please Sign In", Toast.LENGTH_SHORT).show();
-        };
+        }
+        ;
         remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+                if (compoundButton.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember","true");
+                    editor.putString("remember", "true");
                     editor.apply();
                     Toast.makeText(LoginActivity.this, "Checked", Toast.LENGTH_SHORT).show();
 
-                }
-                else if (!compoundButton.isChecked()){
-                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+                } else if (!compoundButton.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember","false");
+                    editor.putString("remember", "false");
                     editor.apply();
                     Toast.makeText(LoginActivity.this, "Unchecked", Toast.LENGTH_SHORT).show();
 

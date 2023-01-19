@@ -14,15 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView startText;
     private Button changeTextBtn;
     private Button changeTextBtn2;
-    private ImageView  logoImage;
-
-
+    private ImageView logoImage;
 
 
     @Override
@@ -41,13 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         changeTextBtn2 = (Button) findViewById(R.id.button2);
         changeTextBtn2.setOnClickListener(this);
 
-        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-        String checkbox = preferences.getString("remember","");
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
 
-        if (checkbox.equals("true")){
+        if (checkbox.equals("true")) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
-        };
+        }
+        ;
 
     }
 

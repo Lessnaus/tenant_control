@@ -9,10 +9,6 @@
     tools:context=".WelcomeActivity">
 
 
-
-
-
-
     <Button
         android:id="@+id/btnStart"
         android:layout_width="match_parent"
@@ -34,16 +30,15 @@
         android:text="Log out" />
 
 
-
     <TextView
         android:id="@+id/textWelcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="50dp"
-        android:text="Welcome"
         android:gravity="center"
-        android:textSize="150px"
-        android:textColor="@color/aqua"/>
+        android:text="Welcome"
+        android:textColor="@color/aqua"
+        android:textSize="150px" />
 
 </RelativeLayout>

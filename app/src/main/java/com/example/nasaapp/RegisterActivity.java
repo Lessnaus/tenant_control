@@ -17,7 +17,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText username, password, repassword;
     Button signup;
     DBHelper DB;
-    TextView textRegister,alert;
+    TextView textRegister, alert;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,30 +39,30 @@ public class RegisterActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
-                if(user.equals("")||pass.equals("")||repass.equals(""))
+                if (user.equals("") || pass.equals("") || repass.equals(""))
                     Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else{
-                    if(pass.equals(repass)){
+                else {
+                    if (pass.equals(repass)) {
                         Boolean checkuser = DB.checkusername(user);
-                        if(checkuser==false){
+                        if (checkuser == false) {
                             Boolean insert = DB.insertData(user, pass);
-                            if(insert==true){
+                            if (insert == true) {
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
-                            }else{
+                            } else {
                                 Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else{
+                        } else {
                             alert.setText("User already exists!");
-                            alert.setVisibility (view.VISIBLE);
+                            alert.setVisibility(view.VISIBLE);
                         }
-                    }else{
+                    } else {
                         alert.setText("Passwords not matching!");
-                        alert.setVisibility (view.VISIBLE);
+                        alert.setVisibility(view.VISIBLE);
                     }
-                } }
+                }
+            }
         });
 
     }

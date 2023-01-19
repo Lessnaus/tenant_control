@@ -13,17 +13,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="50dp"
-        android:text="Register"
         android:gravity="center"
-        android:textSize="150px"
-        android:textColor="@color/aqua"/>
+        android:text="Register"
+        android:textColor="@color/aqua"
+        android:textSize="150px" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textRegister"
-        android:hint="User Name"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:hint="User Name" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPasswordLayout"
@@ -31,17 +32,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_marginTop="50dp"
-        app:passwordToggleEnabled="true"
-        >
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username1"
+            android:background="@color/white"
             android:hint="Password"
-            android:inputType="textPassword"
-            android:background="@color/white"/>
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -51,25 +51,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPasswordLayout"
         android:layout_marginTop="50dp"
-        app:passwordToggleEnabled="true"
-        >
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/repassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Retype Password"
-        android:inputType="textPassword"
-        android:layout_below="@+id/etPasswordLayout"
-        android:background="@color/white"/>
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etPasswordLayout"
+            android:background="@color/white"
+            android:hint="Retype Password"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_below="@+id/etRePasswordLayout"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/etRePasswordLayout"/>
+        android:text="Register" />
 
     <TextView
         android:id="@+id/textAlert"
